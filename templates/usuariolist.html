@@ -10,34 +10,36 @@
 </head>
 
 <body>
+
+
+
+
     <div class="container">
         <h2 class="text-center mt-5">Lista de Usuarios</h2>
         <table class="table">
-           <!-- Titulos de la tabla -->
+            <!-- Titulos de la tabla -->
             <thead>
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">Codigo</th>
+                    <th scope="col">Imagen</th>
                     <th scope="col">Usuario</th>
                     <th scope="col">Profesión</th>
                     <th scope="col">Genero</th>
                     <th scope="col">Ciudad</th>
                 </tr>
             </thead>
+
             <tbody>
+                {% for usr in get_usuarios %}
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Francisca Rojas</td>
-                    <td>Ingeniera de Sistemas</td>
-                    <td>Femenino</td>
-                    <td>Santiago de Chile</td>
+                    <td>{{ usr.codigo }}</td>
+                    <td><img src="{{ usr.photo.url }}" width="40" height="40" style="border-radius:50px"></td>
+                    <td>{{ usr.nombre }}</td>
+                    <td>{{ usr.profesion }}</td>
+                    <td>{{ usr.genero }}</td>
+                    <td>{{ usr.ciudad }}</td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Maximiliano Rojas</td>
-                    <td>Ingeniero de Sistemas</td>
-                    <td>Masculino</td>
-                    <td>Santiago de Chile</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
